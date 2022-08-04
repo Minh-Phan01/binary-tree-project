@@ -38,13 +38,13 @@ class BinarySearchTree {
     if (currentNode === null) return false;
     else if (currentNode.val === val) {
       return true;
-    } 
+    }
     if (val < currentNode.val) {
       return this.search(val, currentNode.left);
     } else if (val > currentNode.val) {
       return this.search(val, currentNode.right);
     }
-    
+
   }
 
 
@@ -58,12 +58,18 @@ class BinarySearchTree {
 
 
   inOrderTraversal(currentNode = this.root) {
-    // Your code here
+    if (!currentNode) return;
+    this.inOrderTraversal(currentNode.left)
+    console.log(currentNode.val)
+    this.inOrderTraversal(currentNode.right)
   }
 
 
   postOrderTraversal(currentNode = this.root) {
-    // Your code here
+    if (!currentNode) return;
+    this.postOrderTraversal(currentNode.left)
+    this.postOrderTraversal(currentNode.right)
+    console.log(currentNode.val)
   }
 
     // Breadth First Traversal - Iterative
